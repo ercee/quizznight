@@ -11,7 +11,7 @@ public abstract class BaseService<T extends BaseModel> {
     @Autowired
     private BaseRepository<T> repository;
 
-    private BaseRepository<T> getRepository() {
+    protected BaseRepository<T> getRepository() {
         return repository;
     }
 
@@ -21,5 +21,13 @@ public abstract class BaseService<T extends BaseModel> {
 
     public T get(Integer id) {
         return getRepository().get(id);
+    }
+
+    public List<T> ins(T t){
+        return getRepository().ins(t);
+    }
+
+    public List<T> delete(Integer id){
+        return getRepository().delete(id);
     }
 }

@@ -1,8 +1,7 @@
 package pub.games.quizznight.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
 import pub.games.quizznight.model.BaseModel;
 import pub.games.quizznight.service.BaseService;
 
@@ -10,9 +9,9 @@ import java.util.List;
 
 public abstract class BaseController<T extends BaseModel> {
     @Autowired
-    protected BaseService<T> service;
+    private BaseService<T> service;
 
-    public BaseService<T> getService() {
+    protected BaseService<T> getService() {
         return service;
     }
 
@@ -24,5 +23,15 @@ public abstract class BaseController<T extends BaseModel> {
     @GetMapping("{id}")
     public T getQuiz(@PathVariable("id") Integer id) {
         return getService().get(id);
+    }
+
+    @PostMapping("ins")
+    public List<T> ins(@RequestBody T t){
+        return getService().ins(t);
+    }
+
+    @DeleteMapping("del/{id}")
+    public List<T> delete(@PathVariable("id") Integer id){
+        return getService().delete(id);
     }
 }

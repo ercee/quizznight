@@ -7,6 +7,7 @@ public class Question extends BaseModel {
     private String question;
     private Map<String, Boolean> choices;
     private String subject;
+    private Integer quizId;
 
     public Question() {
         choices = new LinkedHashMap<>();
@@ -34,5 +35,13 @@ public class Question extends BaseModel {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+
+    public Integer getQuizId() {
+        return quizId;
+    }
+
+    public void setQuizId(Integer quizId) {
+        this.quizId = quizId;
     }
 }
