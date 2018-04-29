@@ -11,7 +11,7 @@ public class QuizznightApplication {
 
     @GetMapping("/")
     String home() {
-        return "Hello world. This is a health application!";
+        return "Hello world. This is a hobby application!";
     }
 
     public static void main(String[] args) {
